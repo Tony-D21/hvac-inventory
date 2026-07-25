@@ -74,41 +74,55 @@
                     <p>Bienvenidos al sistema HVAC</p>
                 </section>
 
-                <section class="row g-3"><!--g*: gutters, definen la separacion entre columnas, pero se define siempre en una fila-->
-                    <article class="col" class="card" style="max-width: 16rem;">
-                        <section class="card text-bg-secondary mb-3">
+                <section class="row g-3"><!--g*: gutters, definen la separacion entre columnas, pero se define siempre en una fila .row-->                    
+                    <article class="col card text-bg-secondary mb-3">
                             <h4 class="card-header">Materiales</h4>
-                            <h6 class="card-title">Materiales registrados</h6>
-                            <p class="card-text">255</p>
-                            <a href="#" class="btn btn-primary">Materiales</a>
-                        </section>
+                            <div class="card-body">
+                                <h6 class="card-title">Materiales registrados</h6>
+                                <p class="card-text">255</p>
+                                <a href="#" class="btn btn-primary">Ver materiales</a>  
+                            </div>
                     </article>
 
-                    <article class="col">
-                        <h3>Stock Bajo</h3>
-                        <p>8</p>
+                    <article class="col card text-bg-secondary mb-3">
+                            <h4 class="card-header">Stock bajo</h4>
+                            <div class="card-body">
+                                <h6 class="card-title">Materiales con stock bajo</h6>
+                                <p class="card-text">8</p>
+                                <a href="#" class="btn btn-primary">Ver stock bajo  </a>
+                            </div>
                     </article>
 
-                    <article class="col">
-                        <h3>Entradas hoy</h3>
-                        <p>5</p>
+                    <article class="col card text-bg-secondary mb-3">
+                            <h4 class="card-header">Entradas</h4>
+                            <div class="card-body">
+                                <h6 class="card-title">Ingresos de material</h6>
+                                <p class="card-text">5</p>
+                                <a href="#" class="btn btn-primary">Ver entradas</a>
+                            </div>
                     </article>
 
-                    <article class="col">
-                        <h3>Salidas hoy</h3>
-                        <p>15</p>
+                    <article class="col card text-bg-secondary mb-3">
+                            <h4 class="card-header">Salidas</h4>
+                            <div class="card-body">
+                                <h6 class="card-title">Egresos de material</h6>
+                                <p class="card-text">15</p>
+                                <a href="#" class="btn btn-primary">Ver salidas</a>
+                            </div>
                     </article>
                 </section>
 
                 <section>
-                    <h2>Ultimos movimientos</h2>    
-                        <table>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Movimiento</th>
-                                <th>Material</th>
-                                <th>Cantidad</th>
-                            </tr>
+                    <h2>Ultimos movimientos</h2>                        
+                        <table class="table">
+                            <thead class="table-dark">                                
+                                <tr><!--Table row(fila)-->
+                                    <th>Fecha</th><!--Table header(columnas dentro de la fila)-->
+                                    <th>Movimiento</th>
+                                    <th>Material</th>
+                                    <th>Cantidad</th>
+                                </tr>
+                            </thead>                            
                         </table>
                 </section>
 
