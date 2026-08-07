@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Inventario{% endblock %}
+
+{% block content %}
+
+<section>
+    <h2>Inventario</h2>
+    <p>Catálogo y existencias de materiales</p>
+</section>
+
+<form class="d-flex" role="search"> <!--Creamos la barra de buscar, junto a su boton de buscar-->
+    <input class="form-control me-2" type="search" placeholder="Buscar material" aria-label="Search"/>
+    <button class="btn btn-outline-success" type="submit">Buscar</button>
+</form>
+
+<a href="{{url_for('main.nuevo')}}">
+    <button type="button" class="btn btn-dark mt-2"> + Registrar material</button>
+</a>
+
+<hr><!--Marca una linea divisoria(es diseño)-->
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Especificación</th>
+            <th scope="col">Unidad</th>
+            <th scope="col">Almacén</th>
+            <th scope="col">Existencia</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">MAT-0001</th>
+            <td>Tubería de cobre</td>
+            <td>3/4 tipo "L"</td>
+            <td>Metro</td>
+            <td>Guadalajara</td>
+            <td>50</td>
+            <td>Disponible</td>
+            <td>Editar</td>
+        </tr>
+    </tbody>
+</table>
+
+
+{% endblock %}

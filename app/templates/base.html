@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HVAC INVENTORY</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+</head>
+
+<body>
+
+    <header>
+        <a href="{{ url_for('main.home') }}">
+            <img src="{{ url_for('static', filename='img/logo-marvi.jpg') }}"
+                 alt="Logo de la empresa"
+                 width="40"
+                 height="auto">
+        </a>
+
+        <h1>Inventario HVAC</h1>
+
+        <p>
+            <strong>Usuario:</strong>
+        </p>
+    </header>
+
+    <main class="container-fluid">
+
+        <section class="row">
+
+            <section class="col-3">
+                <nav>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item fw-bold">
+                            <a href="{{ url_for('main.inventario') }}" class="text-dark">Inventario</a>
+                        </li>
+
+                        <li class="list-group-item fw-bold">
+                            <a href="/entradas" class="text-dark">Entradas</a>
+                        </li>
+
+                        <li class="list-group-item fw-bold">
+                            <a href="/salidas" class="text-dark">Salidas</a>
+                        </li>
+
+                        <li class="list-group-item fw-bold">
+                            <a href="/almacenes" class="text-dark">Almacenes</a>
+                        </li>
+
+                        <li class="list-group-item fw-bold">
+                            <a href="/reportes" class="text-dark">Reportes</a>
+                        </li>
+
+                        <li class="list-group-item fw-bold">
+                            <a href="/historial" class="text-dark">Historial</a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section class="col-9">
+                {% block content %}
+                {% endblock %}
+            </section>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

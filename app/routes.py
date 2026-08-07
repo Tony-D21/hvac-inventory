@@ -5,3 +5,11 @@ main = Blueprint("main", __name__)#Aquí estás creando un blueprint llamado "ma
 @main.route("/")
 def home():
     return render_template("index.html")
+
+@main.route("/inventario")
+def inventario ():
+    return render_template("inventario.html")
+
+@main.route("/nuevo_material")
+def nuevo():
+    return render_template("nuevo_material.html")
