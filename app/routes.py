@@ -10,6 +10,6 @@ def home():
 def inventario ():
     return render_template("inventario.html")
 
-@main.route("/nuevo_material")
+@main.route("/inventario/nuevo")
 def nuevo():
     return render_template("nuevo_material.html")

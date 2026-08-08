@@ -1,3 +1,57 @@
 {% extends "base.html" %}
 
 {% block title %}Registro de material{% endblock %}
+
+{% block content %}
+
+<section>
+<h2>Registro de materiales</h2>
+<p>Completa los datos del material para registro de inventario.</p>
+</section>
+
+
+<form>
+<div class="mb-3">
+    <label for="codigo" class="form-label fw-bold">Codigo</label> <!--f-bold:estilo de bootstrap para colocar en negritas-->
+    <input type="number" class="form-control" id="codigo" value="Disabled readonly input" aria-label="Disabled input">
+    <div id="cod" class="form-text">No es necesario escribir un codigo, se genera automaticamente</div>
+</div>
+
+<div class="mb-3">
+    <label for="nombre" class="form-label fw-bold">Nombre del material</label>
+    <input type="text" class="form-control" id="nombre">
+    <div id="nomb" class="form-text">Ingresa el nombre del material</div>
+</div>
+
+<div class="mb-3">
+    <label for="especificacion" class="form-label fw-bold">Especificación</label>
+    <input type="text" class="form-control" id="especificacion">
+    <div id="especi" class="form-text">Ingresa la medida del material</div>
+</div>
+
+<div class="mb-3">
+    <label for="unidad" class="form-label fw-bold">Unidad de medida</label>
+    <select class="form-select" id="unidad">
+        <option selected disabled>--Seleccione una opción--</option>        
+        <option value="1">Kg</option>
+        <option value="2">Pza</option>
+        <option value="3">M2</option>
+        <option value="4">M</option>       
+    </select>
+    <div id="unidad" class="form-text">Selecciona la opción deseada</div>
+</div>
+
+<div class="mb-3">
+    <label for="descripcion" class="form-label fw-bold">Descripción</label>
+    <textarea class="form-control" id="descripcion" rows="4"></textarea>
+    <div id="descri" class="form-text">Escribe una breve descripción del material</div>
+</div>
+
+<div class="d-flex gap-2">
+<button type="submit" class="btn btn-success">Guardar material</button>
+<button type="submit" class="btn btn-light">Cancelar</button>
+</div>
+
+
+</form>
+{% endblock %}
