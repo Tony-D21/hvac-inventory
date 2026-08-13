@@ -38,26 +38,26 @@
                 <nav>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item fw-bold">
-                            <a href="{{ url_for('main.inventario') }}" class="text-dark">Inventario</a>
+                            <a href="{{ url_for('main.inventario') }}" class="text-dark py-3 fs-5">Inventario</a>
                         </li>
 
-                        <li class="list-group-item fw-bold">
+                        <li class="list-group-item fw-bold py-3 fs-5">
                             <a href="/entradas" class="text-dark">Entradas</a>
                         </li>
 
-                        <li class="list-group-item fw-bold">
+                        <li class="list-group-item fw-bold py-3 fs-5">
                             <a href="/salidas" class="text-dark">Salidas</a>
                         </li>
 
-                        <li class="list-group-item fw-bold">
+                        <li class="list-group-item fw-bold py-3 fs-5">
                             <a href="/almacenes" class="text-dark">Almacenes</a>
                         </li>
 
-                        <li class="list-group-item fw-bold">
+                        <li class="list-group-item fw-bold py-3 fs-5">
                             <a href="/reportes" class="text-dark">Reportes</a>
                         </li>
 
-                        <li class="list-group-item fw-bold">
+                        <li class="list-group-item fw-bold py-3 fs-5">
                             <a href="/historial" class="text-dark">Historial</a>
                         </li>
                     </ul>
@@ -65,6 +65,16 @@
             </section>
 
             <section class="col-9">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for messages in messages %}
+                        <div class="alert alert-warning" role="alert">
+                            {{messages}}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
                 {% block content %}
                 {% endblock %}
             </section>
