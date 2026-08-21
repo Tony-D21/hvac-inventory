@@ -33,16 +33,18 @@
         </tr>
     </thead>
     <tbody>
+        {% for material in materiales %} <!--creamos un for, para recorrer cada material de la lista(creada en routes), y por cada material crear un <tr>-->
         <tr>
-            <th scope="row">MAT-0001</th>
-            <td>Tubería de cobre</td>
-            <td>3/4 tipo "L"</td>
-            <td>Metro</td>
-            <td>Guadalajara</td>
-            <td>50</td>
-            <td>Disponible</td>
-            <td>Editar</td>
+            <th scope="row">{{material.codigo}}</th>
+            <td>{{material.nombre}}</td>
+            <td>{{material.especificacion}}</td>
+            <td>{{material.unidad}}</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 
