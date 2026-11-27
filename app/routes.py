@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, flash
-from .models import Material
+from .models import Material, Almacen
 from . import db
 
 
@@ -11,7 +11,7 @@ def home():
 @main.route("/inventario")
 def inventario ():
     materiales = Material.query.all()#Creamos una variable, y hacemos un query para que nos genere una lista con todos los materiales registros en la database
-    return render_template ("inventario.html", materiales=materiales)#retornamos "inventario.html" y nombras la variable de python a varible de html
+    return render_template ("inventario.html", materiales=materiales)#retornamos "inventario.html" y nombramos la variable de python a varible de html para llamarla en el for de jinja
 
 @main.route("/inventario/nuevo", methods=['GET','POST'])#Definimos el metodo 'get' y 'post' para poder enviar y recibir informacion del formulario 
 def nuevo():
@@ -46,7 +46,7 @@ def nuevo():
         #Formateamos la cadena para que conceptualemente en la Base de datos se escriba: MAT-0001,MAT-0002,MAT-0003.... (04D): 0=Rellena con ceros a la izquierda, 4=Ancho minimo de la cadena(4 caracteres), d=formato decimal(entero)
         codigo = f"MAT-{siguiente_numero:04d}"
 
-        #Creacion de objeto
+        #Creacion de los objetos
         nuevo_material = Material(codigo= codigo, 
                                       nombre= nombre, 
                                       especificacion= especificacion, 
@@ -60,4 +60,34 @@ def nuevo():
 
     return render_template("nuevo_material.html")
 
-    
+@main.route("/entrada", methods= ["GET","POST"])
+def nueva_entrada():
+        if request.method == "POST":
+                    material_id = request.form.get("material_id")
+                    almacen_id = request.form.get("almacen_id")
+                    cantidad = request.form.get("cantidad")
+                    unidad = request.form.get("unidad")
+                    n_serie = request.form.get("n_serie")
+                    estatus = request.form.get("estatus")
+                    recepcion = request.form.get("recepcion")
+        
+        
+                    print(material_id)
+                    print(almacen_id)
+                    print(cantidad)
+                    print(unidad)
+                    print(n_serie)
+                    print(estatus)
+                    print(recepcion)
+
+                              
+        materiales = Material.query.all()       
+        almacenes = Almacen.query.all()
+
+        return render_template(
+                               "nueva_entrada.html",
+                               materiales=materiales,
+                               almacenes=almacenes
+                               )
+
+        

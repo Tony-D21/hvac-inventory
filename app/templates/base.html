@@ -15,56 +15,51 @@
 
 <body>
 
-    <header>
+    <header class="d-flex align-items-center p-3" style="background-color: #0b1f3a">
         <a href="{{ url_for('main.home') }}">
-            <img src="{{ url_for('static', filename='img/logo-marvi.jpg') }}"
-                 alt="Logo de la empresa"
-                 width="40"
-                 height="auto">
+            <img src="{{ url_for('static', filename='img/logo2_marvi.png') }}"alt="Logo de la empresa"width="70" height="auto">
         </a>
+        <h1 class="col-3 text-white ms-2">Marvi Confort</h1>
 
-        <h1>Inventario HVAC</h1>
-
-        <p>
-            <strong>Usuario:</strong>
-        </p>
     </header>
 
-    <main class="container-fluid">
-
-        <section class="row">
-
-            <section class="col-3">
-                <nav>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item fw-bold">
-                            <a href="{{ url_for('main.inventario') }}" class="text-dark py-3 fs-5">Inventario</a>
+    <main class="container-fluid g-0">
+        <section class="d-flex">         
+                <nav class="p-3 min-vh-100 flex-shrink-0" style="width: 280px; background-color: #0b1f3a;">
+                    <ul class="nav nav-pills flex-column gap-2">
+                        <li class="d-flex align-items-center gap-2 mb-4"><!--Mandamos el texto de lado derecho y icono del lado izquierdo-->
+                            <img src="{{ url_for('static', filename= 'img/inventario.png') }}" alt="Logo inventario" width="30" height="auto">
+                            <a href="{{ url_for('main.inventario') }}" class="nav-link text-white">Inventario</a>
                         </li>
 
-                        <li class="list-group-item fw-bold py-3 fs-5">
-                            <a href="/entradas" class="text-dark">Entradas</a>
+                        <li class="d-flex align-items-center gap-2 mb-4">
+                            <img src="{{ url_for('static', filename= 'img/entradas.png') }}" alt="Logo inventario" width="30" height="auto">
+                            <a href="/entrada" class="nav-link text-white">Entradas</a>
                         </li>
 
-                        <li class="list-group-item fw-bold py-3 fs-5">
-                            <a href="/salidas" class="text-dark">Salidas</a>
+                        <li class="d-flex align-items-center gap-2 mb-4">
+                            <img src="{{ url_for('static', filename= 'img/salidas.png') }}" alt="Logo inventario" width="30" height="auto">
+                            <a href="/salidas" class="nav-link text-white">Salidas</a>
                         </li>
 
-                        <li class="list-group-item fw-bold py-3 fs-5">
-                            <a href="/almacenes" class="text-dark">Almacenes</a>
+                        <li class="d-flex align-items-center gap-2 mb-4">
+                            <img src="{{ url_for('static', filename= 'img/almacenes.png') }}" alt="Logo inventario" width="30" height="auto">
+                            <a href="/almacenes" class="nav-link text-white">Almacenes</a>
                         </li>
 
-                        <li class="list-group-item fw-bold py-3 fs-5">
-                            <a href="/reportes" class="text-dark">Reportes</a>
+                        <li class="d-flex align-items-center gap-2 mb-4">
+                            <img src="{{ url_for('static', filename= 'img/reportes.png') }}" alt="Logo inventario" width="30" height="auto">
+                            <a href="/reportes" class="nav-link text-white">Reportes</a>
                         </li>
 
-                        <li class="list-group-item fw-bold py-3 fs-5">
-                            <a href="/historial" class="text-dark">Historial</a>
+                        <li class="d-flex align-items-center gap-2">
+                            <img src="{{ url_for('static', filename= 'img/historiales.png') }}" alt="Logo inventario" width="30" height="auto">
+                            <a href="/historial" class="nav-link text-white">Historial</a>
                         </li>
                     </ul>
                 </nav>
-            </section>
 
-            <section class="col-9">
+            <section class="flex-grow-1 p-4">
                 {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for messages in messages %}

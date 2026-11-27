@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Nuevas entradas{% endblock %}
+
+{% block content %}
+
+<section>
+    <h2>Nueva entrada</h2>
+    <p>Registrar la entrada de material en el almacen</p>
+</section>
+
+
+<form method="POST">
+    <section class="card mb-4 mt-4 shadowsm border">
+        <section class="card-header bg-light">
+            <h6 class="card-tittle mb-0 text-secondary fw-bold">Datos generales</h6>
+        </section>
+        <section class="card-body">
+            <section class="row g-3">
+                <!--Agregamos la lista(select) para materiales-->
+                <section>
+                    <label class="form-label" for="material_id"></label>
+                    <select class="form-select" aria-label="Default select example" name="material_id" id="material_id">
+                        {% for material in materiales %}
+                        <option value="{{material.id}}">
+                            {{material.codigo}} - {{material.nombre}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </section>
+
+                <!--Agregamos la lista(select) para almacenes-->
+                <section>
+                    <label class="form" for="almacen_id"></label>
+                    <select class="form-select" aria-label="Default select example" name="almacen_id" id="almacen_id">
+                        {% for almacen in almacenes %}
+                        <option value="{{almacen.id}}">
+                            {{almacen.nombre}} 
+                        </option>
+                        {% endfor %}
+                    </select>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--Area de seleccion de los datos operativos-->
+    <section class="card mb-4 mt-4 shadowsm border">
+        <section class="card-header bg-light">
+            <h6 class="card-tittle mb-0 text-secondary fw-bold">Datos operativos</h6>
+        </section>
+        <section class="card-body">
+            <section class="row g-3">
+                
+                <!--Cantidad-->
+                <section class="col-md-6">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" name="cantidad" id="cantidad">
+                </section>
+
+                <!--Numero de serie/modelo-->
+                <section class="col-md-6">
+                    <label for="N_serie" class="form-label">No. de serie/modelo (opcional)</label>
+                    <input type="text" class="form-control" name="n_serie" id="n_serie" placeholder="---Escribe el numero de serie---">
+                </section>
+
+                <!--Estatus del material-->
+                <section class="col-md-6">
+                    <label for="Estatus" class="form-label">Estatus del material</label>
+                    <select class="form-select" name="estatus" id="estatus">
+                        <option selected disabled>---Selecciona un estatus del material---</option>
+                        <option value="0">Nuevo</option>
+                        <option value="1">Regresa de obra</option>
+                    </select>
+                </section>
+
+                <!--Recibido por-->
+                <section class="col-md-6">
+                    <label for="Recepcion" class="form-label">Recibido por:</label>
+                    <input type="text" class="form-control" name="recepcion" id="recepcion">
+                </section>
+
+            </section>
+        </section>
+    </section>
+    <!--Agregamos boton de guardar entrada y volver a inicio-->
+    <section class="d-flex gap-2">
+        <button type="submit" class="btn btn-success">Guardar entrada</button>
+        <a href="{{url_for('main.inventario')}}"  class="btn btn-light">Volver a inicio</a>
+    </section>
+</form>
+
+
+                  
+{% endblock %}
+
